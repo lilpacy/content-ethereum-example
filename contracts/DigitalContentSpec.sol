@@ -4,10 +4,8 @@ pragma experimental ABIEncoderV2;
 
 import "./SafeMath.sol";
 import "./Control.sol";
-import "./ManagerRole.sol";
 
-
-abstract contract DigitalContentSpec is Control, ManagerRole {
+abstract contract DigitalContentSpec is Control {
     using SafeMath for uint;
 
     /*** DATA TYPES ***/
