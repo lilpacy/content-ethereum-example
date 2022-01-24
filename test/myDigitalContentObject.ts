@@ -20,15 +20,42 @@ describe("MyDigitalContentObject", function () {
       addr1
     ).deploy();
     await myDigitalContentObject.deployed();
-    await myDigitalContentObject.design("", "", 0, "", 0, "", [], [], [], true);
+    await myDigitalContentObject.design(
+      "",
+      "",
+      0,
+      "http://example.com",
+      0,
+      "",
+      [],
+      [],
+      [],
+      true
+    );
   });
 
   it("Should mint success", async function () {
     const signers = await ethers.getSigners();
     addr1 = signers[1];
     const addr1Address = await addr1.getAddress();
-    await myDigitalContentObject.design("", "", 0, "", 0, "", [], [], [], true);
-    await myDigitalContentObject.mint(addr1Address, 1, "", "");
+    await myDigitalContentObject.design(
+      "",
+      "",
+      0,
+      "http://example.com",
+      0,
+      "",
+      [],
+      [],
+      [],
+      true
+    );
+    await myDigitalContentObject.mint(
+      addr1Address,
+      1,
+      "http://example.com",
+      ""
+    );
     expect(await myDigitalContentObject.objectBalanceOf(addr1Address)).to.equal(
       1
     );
